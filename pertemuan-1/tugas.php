@@ -7,4 +7,14 @@
 // Nama : $nama
 // Jurusan : $jurusan
 // Mata Kuliah : $matKul
+<?php
+function cetakNama() {
+    $nama = "tamami";
+    echo $nama . "<br>";
+}
 
+$jurusan = "TI";
+$matKul = "web-prog";
+
+cetakNama();
+?>
