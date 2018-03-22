@@ -1,13 +1,9 @@
 <?php
-$server = "localhost";
-$username = "dev";
-$password = "rahasia";
-$db = "phb_kelas_d";
+include "koneksi.php";
+$koneksiObj = new Koneksi();
+$koneksi = $koneksiObj->ambilKoneksi();
 
-$koneksi = new mysqli($server, $username, 
-        $password, $db);
-
-if($koneksi->connect_error) {
+if  ($koneksi->connect_error) {
     die("Koneksi gagal : " . $koneksi->connect_error);    
 } else {
     echo "Koneksi ke basis data SUKSES!";
@@ -24,8 +20,12 @@ $query = "insert into harga_barang (kode, nama_barang, harga) ".
     "'," . $_POST["harga"] . ")";
 //echo "<br><br>" . $query;
 if($koneksi->query($query) == true) {
-    echo "<br>Data " . $_POST["namaBarang"] . " sudah tersimpan";
+    echo "<br>Data " . $_POST["namaBarang"] . 
+    " sudah tersimpan. Data bisa dilihat " .
+    '<a href="main.php">disini</a>';
 } else {
     echo "error : " . $query . " -> " . $koneksi->error;
 }
+
+$koneksi->close();
 ?>
