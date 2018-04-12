@@ -37,6 +37,8 @@ if($data->num_rows <= 0) {
         echo "<td>" . $row["harga"] . "</td>";
         echo '<td><a href="edit-form.php?kode=' . 
             $row["kode"] . '">Edit</a>';
+        echo '<td><a href="hapus.php?kode=' . 
+            $row["kode"] . '">Hapus</a>';
         echo "</tr>";
     }
 }
